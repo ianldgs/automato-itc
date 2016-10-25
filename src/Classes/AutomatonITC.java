@@ -28,17 +28,17 @@ public class AutomatonITC extends Automaton {
         even1.addTransition("1", odd1);
         even1.addTransition("0", ends0);
 
-        State _0sOrMore = new State("_0sOrMore");
-
         _10.addTransition("1", even1);
-        _10.addTransition("0", _0sOrMore);
+        _10.addTransition("0", _10);
 
         State _0s = new State("_0s");
         ends0.addTransition("0", _0s);
         ends0.addTransition("1", odd1);
 
-        _0s.addTransition("0", _0sOrMore);
-        _0s.addTransition("1", odd1);
+        _0s.addTransition("0", _0s);
+//        _0s.addTransition("1", odd1);
+
+
 
         this.states = Arrays.asList(lambda, ends0, odd1, _10, even1, _0s);
     }
