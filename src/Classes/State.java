@@ -1,4 +1,4 @@
-package sample.Classes;
+package Classes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +11,10 @@ public class State {
 	private boolean isInitial;
 	private boolean isFinal;
 	private String label;
+
+	public State(String label) {
+		this.label = label;
+	}
 
 	private Map<String, State> transitions = new HashMap<String, State>();
 
@@ -34,25 +38,21 @@ public class State {
 		return label;
 	}
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public void addTransition(String symbol, State state) throws Exception {
+	public void addTransition(String symbol, State state) throws RuntimeException {
 		try{
 			this.transitions.put(symbol, state);
 		}
 		catch (Exception ex){
-			throw ex;
+			throw new RuntimeException(ex);
 		}
 	}
 
-	public void removeTransition(String symbol, State state) throws Exception {
+	public void removeTransition(String symbol, State state) throws RuntimeException {
 		try {
 			this.transitions.remove(symbol);
 		}
 		catch (Exception ex){
-			throw ex;
+			throw new RuntimeException(ex);
 		}
 	}
 
