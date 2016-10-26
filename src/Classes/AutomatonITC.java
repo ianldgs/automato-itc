@@ -3,7 +3,7 @@ package Classes;
 import java.util.Arrays;
 
 /**
- * Created by matheus.elias on 10/24/16.
+ * Created by ianldgs on 10/24/16.
  */
 public class AutomatonITC extends Automaton {
     public AutomatonITC() {
@@ -36,9 +36,6 @@ public class AutomatonITC extends Automaton {
         ends0.addTransition("1", odd1);
 
         _0s.addTransition("0", _0s);
-//        _0s.addTransition("1", odd1);
-
-
 
         this.states = Arrays.asList(lambda, ends0, odd1, _10, even1, _0s);
     }
