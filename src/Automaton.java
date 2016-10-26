@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class Automaton {
 	protected List<State> states;
 
-	public boolean isStringRecognizable(String word){
+	public boolean recognize(String word){
 		String symbol = word.substring(0, 1);
 		State initialState = states.stream().filter((State state) -> state.isInitial()).findFirst().get();
 
