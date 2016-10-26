@@ -20,7 +20,7 @@ public abstract class Automaton {
         }
 	}
 
-	protected boolean isStringRecognizable(String word, State currentState){
+	private boolean isStringRecognizable(String word, State currentState){
         String symbol = word.substring(0, 1);
 		State nextState = currentState.getValueTransition(symbol);
 
