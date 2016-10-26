@@ -1,5 +1,3 @@
-package Classes;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -39,10 +37,9 @@ public class State {
 	}
 
 	public void addTransition(String symbol, State state) throws RuntimeException {
-		try{
+		try {
 			this.transitions.put(symbol, state);
-		}
-		catch (Exception ex){
+		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		}
 	}
@@ -50,8 +47,7 @@ public class State {
 	public void removeTransition(String symbol, State state) throws RuntimeException {
 		try {
 			this.transitions.remove(symbol);
-		}
-		catch (Exception ex){
+		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		}
 	}

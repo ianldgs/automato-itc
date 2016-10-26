@@ -1,6 +1,4 @@
-package Classes;
-
-import java.util.*;
+import java.util.List;
 
 /**
  * Created by Matheus on 13/10/2016.
@@ -10,14 +8,13 @@ public abstract class Automaton {
 
 	public boolean isStringRecognizable(String word){
 		String symbol = word.substring(0, 1);
-		State initialState = states.stream().filter(state -> state.isInitial()).findFirst().get();
+		State initialState = states.stream().filter((State state) -> state.isInitial()).findFirst().get();
 
 		State nextState = initialState.getValueTransition(symbol);
 
-        if(word.length() == 1){
+        if (word.length() == 1) {
             return nextState.isFinal();
-        }
-        else{
+        } else {
             String nextWord = word.substring(1, word.length());
             return this.isStringRecognizable(nextWord, nextState);
         }
@@ -27,13 +24,11 @@ public abstract class Automaton {
         String symbol = word.substring(0, 1);
 		State nextState = currentState.getValueTransition(symbol);
 
-		if(nextState != null && word.length() == 1){
+		if (nextState != null && word.length() == 1) {
             return nextState.isFinal();
-		}
-		else if(nextState == null){
+		} else if(nextState == null) {
             return currentState.isFinal();
-        }
-		else{
+        } else {
             String nextWord = word.substring(1, word.length());
             return this.isStringRecognizable(nextWord, nextState);
 		}
