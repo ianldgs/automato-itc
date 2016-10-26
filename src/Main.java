@@ -1,20 +1,24 @@
-import Classes.AutomatonITC;
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        String word = "1100110", result;
+        String word;
 
-        AutomatonITC automataITC = new AutomatonITC();
-        boolean isRecognized = automataITC.isStringRecognizable(word);
+        do {
+            word = JOptionPane.showInputDialog(null, "Digite uma palavra para testar o autômato:");
 
-        if(isRecognized){
-            result = "OK";
-        }
-        else{
-            result = "Falhou";
-        }
+            if (null == word) {
+                break;
+            }
 
-        System.out.println(word + ": " +  result);
+            AutomatonITC a = new AutomatonITC();
+
+            if (a.recognize(word)) {
+                JOptionPane.showMessageDialog(null, "A palavra " + word + " foi reconhecida!");
+            } else {
+                JOptionPane.showMessageDialog(null, "A palavra " + word + " não foi reconhecida!");
+            }
+        } while (true);
     }
 }
